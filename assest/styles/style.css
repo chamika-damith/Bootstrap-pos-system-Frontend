@@ -1,0 +1,283 @@
+:root {
+    --primary-100: #1F3A5F;
+    --primary-200: #4d648d;
+    --primary-300: #acc2ef;
+    --accent-100: #3D5A80;
+    --accent-200: #cee8ff;
+    --text-100: #FFFFFF;
+    --text-200: #e0e0e0;
+    --bg-100: #193457;
+    --bg-200: #1f2b3e;
+    --bg-300: #374357;
+
+}
+
+
+body{
+    background-color: #e2e2e2;
+}
+.navbar-brand {
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Poppins';
+}
+.navtop {
+    background-color: #F9F8FB;
+    border-bottom: 3px solid black;
+    box-shadow: 0 2px 0px #363636;
+}
+
+.nav-item{
+    font-weight: 300;
+    font-family: 'Poppins';
+}
+.navigation:hover{
+    color: #00ff04 !important;
+    cursor: pointer;
+}
+.navbar {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.navbar-brand {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffc107;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    color: #00ff04 !important;
+}
+
+.navbar-nav .active {
+    font-weight: bold;
+}
+
+.fas {
+    margin-right: 5px;
+}
+/*#homediv{*/
+/*    position: fixed;*/
+
+/*    padding: 20px;*/
+/*    z-index: 100;*/
+/*}*/
+
+.cardHome {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background 0.2s;
+    background: linear-gradient(135deg, var(--primary-100) 0%, var(--accent-100) 100%);
+    color: var(--text-100);
+}
+.cardHome:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, var(--accent-100) 0%, var(--primary-100) 100%);
+}
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.count {
+    font-size: 2.5rem;
+}
+.link-page {
+    display: block;
+    margin-top: 15px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.link-page:hover {
+    text-decoration: underline;
+}
+.fa-2xl {
+    font-size: 2.5rem;
+    margin-top: 15px;
+}
+/*canvas {*/
+/*    background-color: var(--primary-100);*/
+/*    border-radius: 10px;*/
+/*}*/
+.myCard{
+
+    width: 100%;
+    height: 250px;
+    background: #295635;
+    border-radius: 10px;
+
+}
+.myCard>i{
+    color: #dfc2c4;
+    font-size: 5em;
+    text-align: center;
+    display: block;
+    padding-top: 35px;
+    opacity:0.6;
+}
+
+.myCard>h1{
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    font-family: Ubuntu;
+    padding-top: 20px;
+
+}
+
+.myCard>h2{
+    color: white;
+    font-size: 3em;
+    text-align: center;
+    font-family: Ubuntu;
+    padding-top: 2px;
+}
+.manageCustomer{
+    background-color: #49b249;
+}
+.card-header{
+    background-color: #49b249;
+}
+#addcustomer{
+    background-color: #067c8d !important;
+}
+.errorMessageId, .errorMessageName, .errorMessageAddress, .errorMessageSalary,.errorMessageItemId,.errorMessageItemName,.errorMessageItemPrice,.errorMessageItemQty,.errorOrderQty,.errorQty,#cashError{
+    color: red;
+    display: none;
+}
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #4CAF50;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.btn {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.table {
+    border-radius: 15px;
+}
+
+.text-success {
+    color: #4CAF50 !important;
+}
+
+.table th,
+.table td {
+    border-top: none !important;
+}
+
+/* Add animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
+
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #007bff;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-control {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+}
+
+.btn {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.table {
+    border-radius: 15px;
+}
+
+.text-success {
+    color: #28a745 !important;
+}
+
+.table th,
+.table td {
+    border-top: none !important;
+}
+
+/* Add animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+}
