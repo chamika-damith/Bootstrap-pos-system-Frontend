@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #4A90E2;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f7f9fc;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #4A90E2;
+            background-color: #fff;
+            box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            background-color: #2A65A0;
+            transform: translateY(0);
+        }
+
+        .forgot-password,
+        p {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .forgot-password,
+        a {
+            color: #4A90E2;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container" id="login-section">
+            <h2>Login</h2>
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required>
+
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required>
+
+            <button id="login-btn">Login</button>
+
+            <a href="#" class="forgot-password">Forgot Password?</a>
+
+            <p>Don't have an account? <a href="#" id="show-signup">Create Account</a></p>
+        </div>
+
+        <!-- Signup Form -->
+        <div class="form-container" id="signup-section" style="display: none;">
+            <h2>Sign Up</h2>
+            <label for="signup-username">Username:</label>
+            <input type="text" id="signup-username" name="username" required>
+
+            <label for="signup-email">Email:</label>
+            <input type="email" id="signup-email" name="email" required>
+
+            <label for="signup-password">Password:</label>
+            <input type="password" id="signup-password" name="password" required>
+
+            <label for="signup-repassword">Re-enter Password:</label>
+            <input type="password" id="signup-repassword" name="repassword" required>
+
+            <button id="signup-btn">Sign Up</button>
+
+            <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        document.getElementById('show-signup').addEventListener('click', function () {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('signup-section').style.display = 'block';
+        });
+
+        document.getElementById('show-login').addEventListener('click', function () {
+            document.getElementById('signup-section').style.display = 'none';
+            document.getElementById('login-section').style.display = 'block';
+        });
+
+        $('#login-btn').on('click', () => {
+            const email = encodeURIComponent($('#login-email').val());
+            const password = encodeURIComponent($('#login-password').val());
+
+            if (email === '' || password === '') {
+                alert('Please fill in both fields');
+                return;
+            }
+
+            const url = `http://localhost:8080/pos/user?email=${email}&password=${password}`;
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                contentType: 'application/json',
+                success: (response) => {
+                    if (response) {
+                        window.location.href = 'index.html';
+                    } else {
+                        alert('Invalid email or password');
+                    }
+                },
+                error: (xhr, status, error) => {
+                    alert('An error occurred: ' + error);
+                }
+            });
+        });
+
+
+        $('#signup-btn').on('click', () => {
+            const username = $('#signup-username').val();
+            const email = $('#signup-email').val();
+            const password = $('#signup-password').val();
+            const repassword = $('#signup-repassword').val();
+
+
+            var user = {
+                username: username,
+                email: email,
+                password: password
+            }
+
+            if (password !== repassword) {
+                alert('Re-entered password does not match');
+                $('#signup-repassword').focus();
+                return;
+            }
+
+            $.ajax({
+                url: 'http://localhost:8080/pos/user',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(user),
+                success: (response) => {
+                    if (response) {
+                        $('#signup-section').hide();
+                        $('#login-section').show();
+                        alert('Signup successful! Please log in.');
+                    } else {
+                        alert('Signup failed. Please try again.');
+                    }
+                },
+                error: (xhr, status, error) => {
+                    alert('An error occurred: ' + error);
+                }
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

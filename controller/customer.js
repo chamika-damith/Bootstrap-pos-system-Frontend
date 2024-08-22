@@ -34,7 +34,7 @@ function loadTable() {
             });
         },
         error: (res) => {
-            alert('Error table loading customer records');
+            
         }
 
     });

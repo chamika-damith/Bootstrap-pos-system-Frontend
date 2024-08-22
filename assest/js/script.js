@@ -32,6 +32,16 @@ $('.customer-btn').on('click', () =>{
 
 });
 
+$('#btnLogin').on('click', () =>{
+    $('#homediv').show();
+    $('.navbar').show();
+    $('#login-sec').hide();
+    $('.order-section').hide();
+    $('#item-section').hide();
+    $('#customer-section').hide();
+
+});
+
 /*validate field*/
 
 function checkNameField() {
