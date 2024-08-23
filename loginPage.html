@@ -202,7 +202,8 @@
                 type: 'GET',
                 contentType: 'application/json',
                 success: (response) => {
-                    if (response) {
+                    const userExists = (response === 'true' || response === true);
+                    if (userExists) {
                         window.location.href = 'index.html';
                     } else {
                         alert('Invalid email or password');
@@ -213,6 +214,7 @@
                 }
             });
         });
+
 
 
         $('#signup-btn').on('click', () => {

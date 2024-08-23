@@ -32,15 +32,7 @@ $('.customer-btn').on('click', () =>{
 
 });
 
-$('#btnLogin').on('click', () =>{
-    $('#homediv').show();
-    $('.navbar').show();
-    $('#login-sec').hide();
-    $('.order-section').hide();
-    $('#item-section').hide();
-    $('#customer-section').hide();
-
-});
+showAlert();
 
 /*validate field*/
 
@@ -130,4 +122,17 @@ function checkFieldItemQty() {
     }
 }
 
+
+function showAlert() {
+    const alertBox = document.getElementById('info');
+    alertBox.classList.add('show');
+
+    setTimeout(function () {
+        alertBox.classList.remove('show');
+    }, 2000);
+
+    document.getElementById('closeInfo').addEventListener('click', function () {
+        alertBox.classList.remove('show');
+    });
+}
 
