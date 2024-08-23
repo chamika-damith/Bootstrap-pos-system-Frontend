@@ -34,7 +34,7 @@ function loadTable() {
             });
         },
         error: (res) => {
-            
+
         }
 
     });
@@ -76,6 +76,7 @@ $(".save_btn").on('click', () => {
                 success: (Response) => {
                     loadTable();
                     startProgress();
+                    showSuccess();
                 },
                 error: (res) => {
                     alert('Error save');
@@ -133,6 +134,7 @@ $(".delete_btn").on('click', () => {
             loadTable();
             startProgress();
             clearField();
+            showDelete();
         }
 
     });
@@ -168,11 +170,12 @@ $(".update_btn").on('click', () => {
                 loadTable();
                 startProgress();
                 clearField();
+                showUpdate();
             },
             error: (res) => {
                 alert('Error updating');
             }
-    
+
         });
     }
 });
@@ -193,4 +196,60 @@ function startProgress() {
             progressBar.style.width = width + '%';
         }
     }, 5);
+}
+
+
+
+function showSuccess() {
+    const alertBox = document.getElementById('success');
+    alertBox.classList.add('show');
+
+    setTimeout(function () {
+        alertBox.classList.remove('show');
+    }, 2000);
+
+    document.getElementById('closeSuccess').addEventListener('click', function () {
+        alertBox.classList.remove('show');
+    });
+}
+
+
+function showUpdate() {
+    const alertBox = document.getElementById('update');
+    alertBox.classList.add('show');
+
+    setTimeout(function () {
+        alertBox.classList.remove('show');
+    }, 2000);
+
+    document.getElementById('closeSuccess').addEventListener('click', function () {
+        alertBox.classList.remove('show');
+    });
+}
+
+
+function showDelete() {
+    const alertBox = document.getElementById('delete');
+    alertBox.classList.add('show');
+
+    setTimeout(function () {
+        alertBox.classList.remove('show');
+    }, 2000);
+
+    document.getElementById('closeSuccess').addEventListener('click', function () {
+        alertBox.classList.remove('show');
+    });
+}
+
+function showError() {
+    const alertBox = document.getElementById('error');
+    alertBox.classList.add('show');
+
+    setTimeout(function () {
+        alertBox.classList.remove('show');
+    }, 2000);
+
+    document.getElementById('closeInfo').addEventListener('click', function () {
+        alertBox.classList.remove('show');
+    });
 }
